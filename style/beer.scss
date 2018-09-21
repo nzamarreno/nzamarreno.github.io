@@ -1,0 +1,289 @@
+$radius: 0.4rem;
+$spaceShadow: -1.5rem;
+$pump-width: 8rem;
+
+.beer__wrapper {
+    position: relative;
+
+    display: inline-block;
+
+    &:before {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+
+        display: block;
+
+        width: 25rem;
+        height: 25rem;
+
+        content: "";
+
+        border-radius: 50%;
+        background-color: #71C6BB;
+    }
+}
+
+.beer-pump {
+    position: relative;
+}
+
+.pump {
+    position: relative;
+    left: 1rem;
+
+    overflow: hidden;
+
+    width: $pump-width;
+    height: 15rem;
+
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+    background-color: darken($primary, 5%);
+
+    &__shadow {
+        position: absolute;
+        top: 0;
+        left: $spaceShadow;
+
+        width: 100%;
+        height: 100%;
+
+        border-top-right-radius: $radius;
+        background-color: $primary;
+    }
+
+    &__round {
+        position: absolute;
+        z-index: 2;
+        top: 1.5rem;
+        left: 50%;
+
+        overflow: hidden;
+
+        width: 3rem;
+        height: 3rem;
+
+        transform: translateX(-50%);
+
+        border-radius: 50%;
+        background-color: darken($secondary, 5%);
+
+        &:before {
+            position: absolute;
+            position: absolute;
+            top: 0;
+            left: -1rem;
+
+            width: 100%;
+            height: 100%;
+
+            content: "";
+
+            border-radius: 50%;
+            background-color: $secondary;
+        }
+    }
+}
+
+.table {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 20rem;
+    height: 2.5rem;
+
+    border-radius: $radius;
+    background-color: darken($secondary, 5%);
+
+    &__shadow {
+        position: absolute;
+        top: 0;
+        left: $spaceShadow;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: $secondary;
+    }
+}
+
+@mixin tap(
+  $width,
+  $height,
+  $spaceShadow,
+  $color,
+  $OffsetPositionX,
+  $OffsetPositionY
+) {
+    position: absolute;
+    top: calc(3rem + #{$OffsetPositionY});
+    left: calc(#{$pump-width} + 1rem + #{$OffsetPositionX});
+
+    overflow: hidden;
+
+    width: $width;
+    height: $height;
+
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    background-color: darken($color, 5%);
+
+    &:before {
+        position: absolute;
+        position: absolute;
+        top: 0;
+        left: -$spaceShadow;
+
+        width: 100%;
+        height: 100%;
+
+        content: "";
+
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+        background-color: $color;
+    }
+}
+
+.pump-extend__one {
+    @include tap(3rem, 5rem, 1rem, $secondary, 0rem, 0rem);
+}
+
+.pump-extend__two {
+    @include tap(2rem, 4rem, 1rem, $secondary, 3rem, 0.5rem);
+}
+
+.pump-extend__three {
+    @include tap(3rem, 2rem, 1rem, $secondary, 5rem, 1.5rem);
+}
+
+.tap {
+    &__tap {
+        position: absolute;
+        top: 3rem;
+        left: 16.5rem;
+
+        overflow: hidden;
+
+        width: 2.5rem;
+        height: 4rem;
+
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: $radius;
+        border-bottom-left-radius: $radius;
+        background-color: darken($secondary, 5%);
+
+        &:before {
+            position: absolute;
+            position: absolute;
+            top: 0;
+            left: -0.8rem;
+
+            width: 100%;
+            height: 100%;
+
+            content: "";
+
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: $radius;
+            border-bottom-left-radius: $radius;
+            background-color: $secondary;
+        }
+    }
+}
+
+.beer {
+    position: absolute;
+    top: 8.5rem;
+    right: 1rem;
+
+    width: 4rem;
+    height: 6rem;
+
+    &__glass {
+        z-index: 5;
+
+        width: 100%;
+        height: 100%;
+
+        border-right: 0.5rem solid #DDE8FA;
+        border-bottom: 0.5rem solid #DDE8FA;
+        border-left: 0.5rem solid #DDE8FA;
+        border-bottom-right-radius: $radius;
+        border-bottom-left-radius: $radius;
+
+        &:before {
+            position: absolute;
+            z-index: 7;
+
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            content: "";
+            transform: scaleY(0);
+            transform-origin: bottom;
+
+            background-color: $primary;
+        }
+
+        &:after {
+            position: absolute;
+            z-index: 6;
+
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            content: "";
+            transform: scaleY(0);
+            transform-origin: bottom;
+
+            background-color: #F8F2D0;
+        }
+    }
+
+    &__handle {
+        position: absolute;
+        z-index: 1;
+        top: 1rem;
+        right: -1rem;
+
+        width: 1.5rem;
+        height: 2.5rem;
+
+        transform: translateX(100%);
+
+        border-top: 0.5rem solid #DDE8FA;
+        border-right: 0.5rem solid #DDE8FA;
+        border-bottom: 0.5rem solid #DDE8FA;
+        border-top-right-radius: $radius;
+        border-bottom-right-radius: $radius;
+    }
+}
+
+@keyframes animBeer {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(0.8);
+    }
+}
+
+@keyframes animBeerCream {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}

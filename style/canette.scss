@@ -1,0 +1,183 @@
+.canette {
+    position: relative;
+
+    width: 38rem;
+
+    &:before {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+
+        display: block;
+
+        width: 60rem;
+        height: 60rem;
+
+        content: "";
+
+        border-radius: 50%;
+        background-color: #EA5761;
+    }
+
+    &__bubble {
+        position: absolute;
+
+        animation: bubbles 12s infinite;
+
+        border-radius: 50%;
+        background-color: #EA5761;
+    }
+
+    &__edge {
+        position: relative;
+
+        overflow: hidden;
+
+        height: 2.5rem;
+
+        border-radius: 1000rem;
+        background-color: darken($iron, 15%);
+
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 8rem;
+
+            display: block;
+
+            width: 100%;
+            height: 120%;
+
+            content: "";
+
+            border-radius: 1000rem;
+            background-color: darken($iron, 10%);
+        }
+    }
+
+    &__content {
+        position: relative;
+
+        width: calc(100% - 5rem);
+        height: 45rem;
+
+        transform: translateX(2.5rem);
+
+        background-color: $iron;
+
+        clip-path: polygon(
+        5% 0%,
+        95% 0%,
+        100% 10%,
+        100% 90%,
+        95% 100%,
+        5% 100%,
+        0% 90%,
+        0% 10%
+        );
+    }
+
+    &__mark {
+        font-family: "Lobster", cursive;
+        font-size: 10rem;
+
+        position: absolute;
+        z-index: 5;
+        left: 50%;
+
+        display: flex;
+        overflow: hidden;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+
+        width: 15rem;
+        height: 100%;
+
+        transform: translate3d(-50%, 0, 0) rotate(180deg);
+
+        color: white;
+        background-color: darken($mark, 5%);
+
+        clip-path: polygon(
+        5% 0%,
+        95% 0%,
+        100% 10%,
+        100% 90%,
+        95% 100%,
+        5% 100%,
+        0% 90%,
+        0% 10%
+        );
+        text-orientation: mixed;
+        writing-mode: vertical-rl;
+
+        &:before {
+            position: absolute;
+            z-index: -1;
+            left: -2rem;
+
+            width: 100%;
+            height: 100%;
+
+            content: "";
+
+            background-color: $mark;
+
+            clip-path: polygon(
+            5% 0%,
+            95% 0%,
+            100% 10%,
+            100% 90%,
+            95% 100%,
+            5% 100%,
+            0% 90%,
+            0% 10%
+            );
+        }
+
+        span {
+            font-size: 6rem;
+
+            display: inline-block;
+
+            padding: 2rem;
+        }
+    }
+
+    &__shadow {
+        position: absolute;
+        z-index: 4;
+        left: 4rem;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: darken($iron, 5%);
+
+        clip-path: polygon(
+        5% 0%,
+        95% 0%,
+        100% 10%,
+        100% 90%,
+        95% 100%,
+        5% 100%,
+        0% 90%,
+        0% 10%
+        );
+    }
+}
+
+@keyframes bubbles {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
