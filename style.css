@@ -319,7 +319,8 @@ ul {
   100% {
     transform: translateY(0); } }
 
-html, body {
+html,
+body {
   font-size: 62.5%;
   height: 100%;
   margin: 0;
@@ -412,7 +413,7 @@ html, body {
   .wrapper__subtitle {
     font-family: Montserrat;
     font-size: 2rem;
-    font-weight: 100;
+    font-weight: 500;
     display: block;
     margin-bottom: 1rem;
     color: white; }
